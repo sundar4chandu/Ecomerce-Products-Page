@@ -62,7 +62,7 @@ addToCart(){
 
   removeItem(i){
     this.totalPrice = Number(this.totalPrice) - Number(this.cartList[i].price);
-    this.cartList.splice(i);
+    this.cartList.splice(i,1);
   }
 
 }
