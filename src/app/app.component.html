@@ -1,20 +1,65 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container-fluid header">
+  <div class="navbar navbar-inverse">
+    <h2 class="navbar-brand">
+      <img src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/c2138515704971.56295ea999cee.png" alt=""> </h2>
+  </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container-fluid">
+  <div class="row main">
+    <div class="col-md-8 col-sm-6  col-xs-12">
+      <div>
+        <input class=" col-md-10 search-input well well-md" placeholder="Search Product" type="text" [(ngModel)]="queryString" (ngModelChange)="searchProduct()" >
+      </div>
+      <div class="products-list">
+        <div class="row" *ngFor="let row of productRow;" >
+          <div class="col-md-3 col-sm-6 col-xs-10 product thumbnail offset" *ngFor="let item of row" (click)="showProductDetails(template,item)" >
+            <img [src]="item.image" class="img-thumbnail" alt="">
+            <div class="taglin">
+              <h5 class="title">{{item.product_name}} </h5>
+              <h4 class="price">${{item.price}}</h4>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 col-cs-12 cart"> 
+      <div class="cart-container">
+        <h3>Your Cart</h3>
+        <p *ngIf="cartList.length == 0" > Your cart is empty.</p>
+        <div class="cart-list" *ngFor="let item of cartList; let i = index" >
+          <div class="cart-name col-md-7"> {{item.product_name}} </div>
+          <div class="cart-price col-md-3">${{item.price}} </div>
+          <div class="cart-icon col-md-2  ">   <fa name="trash" (click)="removeItem(i)" ></fa></div>      
+        </div>
+      </div>
+      <div class="total" *ngIf="cartList.length > 0" >
+        <h2 class="col-md-8"> Total </h2>
+        <h2 class="col-md-4">{{totalPrice}} </h2>
+      </div>
+      <div class="pay-button" *ngIf="cartList.length > 0" >
+        <button type="button" class="btn btn-success btn-lg">Buy Now</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<ng-template #template class="container-fluid">
+  <div class="modal-header">
+      <h4 class="modal-title pull-left">{{product.product_name}}</h4>
+      <button type="button" class="close pull-right" 
+              aria-label="Close" (click)="modal.hide()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  </div>
+  <div class="modal-body container">
+    <div class="row">
+      <img class="detail-image" [src]="product.image" alt="">
+      <div class="modal-description">
+        <h3>{{product.product_name}}</h3>
+        <p>{{product.description}} </p>
+        <h4>${{product.price}} </h4>    
+        <button type="button" class="btn btn-primary" (click)="addToCart()" >Add to Cart</button>    
+      </div>
+    </div>
+  </div>
+</ng-template>

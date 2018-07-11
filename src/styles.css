@@ -1,1 +1,155 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+body {
+    height: 100vh;
+    background-image: url("https://www.growthgurus.com/wp-content/uploads/2017/11/background-growth-gurus-2.jpg");
+    background-repeat: no-repeat;
+    background-size:cover ;
+    background-attachment: fixed;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    color: white;
+  
+}
+
+
+.navbar-brand{
+    margin: 2px;
+    padding: 2px;
+    width: 200px;
+    font-family: 'Josefin Sans', sans-serif;
+    text-align: center;
+}
+.navbar-brand img{
+    width: 100px;
+}
+
+.navbar-inverse{
+    background: rgba(7, 8, 7, 0.92);
+}
+
+.products-list{
+    margin-top : 70px;
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 5px;
+}
+
+.cart-container{
+    padding: 25px;
+    color: rgb(250, 252, 250);
+    background: rgba(7, 8, 7, 0.62);
+    z-index: 90;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+
+.product{
+    padding: 25px;
+    color: rgb(250, 252, 250);
+    background: rgba(7, 8, 7, 0.62);
+    z-index: 90;
+    border: 1px solid;
+    border-radius: 10px;
+
+}
+
+
+.well{
+    position: absolute;
+}
+
+.thumbnail, .price, .description, .title {
+    color: rgb(221, 223, 221);
+}
+  
+.thumbnail .price {
+    font-size: 24px;
+}
+  
+.container-fluid {
+    padding: 0;
+    border-radius: 0px;
+}
+
+.search-input{
+    background: rgba(7, 8, 7, 0.62);
+
+}
+
+.navbar{
+    width: 100%;
+    position: fixed;
+    border-radius: 0px !important;
+    z-index: 99;
+}
+
+.navbar > img {
+    height: 50px;
+}
+
+.container-fluid > .main{
+    padding: 16px;
+    position: relative;
+    height: 90% ;
+    margin-top: 56px;
+}
+
+.product{
+    text-align: center;
+    position: relative;
+    margin: 10px;
+    border-radius: 10px;
+    width: 27%;
+    border: none;
+}
+
+.product > img{
+    max-height: 80%;
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+    padding: 0;
+    margin: 0px;
+    border : none;
+}
+
+.detail-image{
+    width: 200px !important;
+    padding: 5px;
+    float: left;
+}
+
+.modal-body{
+    color: black;
+}
+
+.modal-description{
+    width: 350px;
+    margin-left: 220px;
+}
+
+.cart-list{
+    width: 100%;
+    padding: 1em;
+}
+
+.cart-name{
+    text-align: initial;
+}
+
+.pay-button{
+    padding: 16px;
+    text-align: center;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  
+    background: transparent; 
+}
+
