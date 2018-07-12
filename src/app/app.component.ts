@@ -17,7 +17,7 @@ export class AppComponent {
   productRow : any = [];
   cartList : any = [];
   product : any;
-  totalPrice : string = "";
+  totalPrice : any = "";
   queryString : string;
 
   constructor ( private data : DataService,
@@ -61,7 +61,7 @@ addToCart(){
   }
 
   removeItem(i){
-    this.totalPrice = Number(this.totalPrice) - Number(this.cartList[i].price);
+    this.totalPrice = (Number(this.totalPrice) - Number(this.cartList[i].price)).toFixed(2);
     this.cartList.splice(i,1);
   }
 
